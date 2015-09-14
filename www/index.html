@@ -48,12 +48,38 @@
             // Play audio
             
             function play(){
+
+                navigator.notification.alert(
+                  'Iniciando o play',
+                  function(){},
+                  'MEDIA',
+                  'Fechar'
+                );
+                
                 my_stream.play(); 
-                alert("dei um play");
+
+                navigator.notification.alert(
+                  'Concluiu o play',
+                  function(){},
+                  'MEDIA',
+                  'Fechar'
+                );
             }
             function stop(){
+                navigator.notification.alert(
+                  'Iniciando o stop',
+                  function(){},
+                  'MEDIA',
+                  'Fechar'
+                );
                 my_stream.stop();
-                alert("dei um stop");
+
+                navigator.notification.alert(
+                  'Concluiu um stop',
+                  function(){},
+                  'MEDIA',
+                  'Fechar'
+                );
             }
             function onSuccess() {
                 console.log("playAudio():Audio Success");
