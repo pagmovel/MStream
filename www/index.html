@@ -30,7 +30,8 @@
         <style>
             input {
                 width: 200px;
-                height:; 100px;
+                height: 100px;
+                size: 45px;
             }
         </style>
     </head>
@@ -47,10 +48,12 @@
             // Play audio
             
             function play(){
-                my_media.play();    
+                my_stream.play(); 
+                alert("dei um play");
             }
             function stop(){
-                my_media.stop();
+                my_stream.stop();
+                alert("dei um stop");
             }
             function onSuccess() {
                 console.log("playAudio():Audio Success");
