@@ -52,16 +52,16 @@
                 navigator.notification.alert(
                   'Iniciando o play',
                   function(){},
-                  'MEDIA',
+                  'MEDIA PLAY',
                   'Fechar'
                 );
                 
-                my_media.play(); 
+                my_stream.play(); 
 
                 navigator.notification.alert(
                   'Concluiu o play',
                   function(){},
-                  'MEDIA',
+                  'MEDIA PLAY',
                   'Fechar'
                 );
             }
@@ -69,24 +69,35 @@
                 navigator.notification.alert(
                   'Iniciando o stop',
                   function(){},
-                  'MEDIA',
+                  'MEDIA STOP',
                   'Fechar'
                 );
-                my_media.stop();
+                my_stream.stop();
 
                 navigator.notification.alert(
                   'Concluiu um stop',
                   function(){},
-                  'MEDIA',
+                  'MEDIA STOP',
                   'Fechar'
                 );
             }
             function onSuccess() {
                 console.log("playAudio():Audio Success");
+                nav"playAudio():Audio Success",
+                  function(){},
+                  'onSucess',
+                  'Fechar'
+                );
             }
             function onError(error) {
-                alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
+                navigator.notification.alert(
+                  'code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n',
+                  function(){},
+                  'onError',
+                  'Fechar'
+                );
+               
             }
 
 
