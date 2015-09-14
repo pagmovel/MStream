@@ -1,0 +1,19 @@
+{
+    "cordova-plugin-media": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-media"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.keosu.cordova.stream": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/keosuofficial/cordova-audio-stream-plugin.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}
