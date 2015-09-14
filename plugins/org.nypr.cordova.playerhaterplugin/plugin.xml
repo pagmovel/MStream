@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="org.nypr.cordova.playerhaterplugin"
+    version="0.1.0">
+    <name>Device</name>
+    <description>PlayerHater Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>audio,stream,radio</keywords>
+    <repo>git@git.wnyc.net:mobile/cordova/cordova-plugin-playerhater.git</repo>
+
+    <js-module src="www/audioplayer.js" name="AudioPlayer"> 
+      <clobbers target="audioplayer"/> 
+    </js-module> 
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AudioPlayerPlugin" >
+                <param name="android-package" value="org.nypr.cordova.playerhaterplugin.PlayerHaterPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+          <uses-permission android:name="android.permission.INTERNET" />
+          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+          <uses-permission android:name="android.permission.WAKE_LOCK" />
+          <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+          <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+
+        </config-file>
+       
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+          <service android:name="org.prx.playerhater.PlaybackService">
+            <meta-data android:name="org.prx.playerhater.Config" android:resource="@xml/playerhater"></meta-data>
+          </service>
+	  <receiver android:name="org.prx.playerhater.BroadcastReceiver">
+            <intent-filter>
+              <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+          </receiver>
+        </config-file>
+ 
+	<source-file src="res/android/layout-v11/nypr_ph_hc_notification.xml" target-dir="res/layout-v11" />
+        <source-file src="src/android/org/nypr/cordova/playerhaterplugin" target-dir="src/org/nypr/cordova" />
+        <source-file src="src/android/org/prx/playerhater" target-dir="src/org/prx" />
+        <resource-file src="res/android/" target="res" />
+
+        <source-file src="lib/android/aacdecoder-android-0.8.jar" target-dir="libs" />
+        <source-file src="lib/android/mips" target-dir="libs" />
+        <source-file src="lib/android/x86" target-dir="libs" />
+        <source-file src="lib/android/armeabi" target-dir="libs" />
+        <source-file src="lib/android/armeabi-v7a" target-dir="libs" />
+
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="AudioPlayerPlugin">
+                <param name="ios-package" value="PRXPlayerPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/PRXPlayerPlugin.h" />
+        <header-file src="src/ios/AudioStreamHandler.h" />
+        <header-file src="src/ios/PRXPlayer/PRXPlayer.h" />
+        <header-file src="src/ios/PRXPlayer/PRXPlayerQueue.h" />
+        <header-file src="src/ios/PRXPlayer/PRXPlayer_private.h" />
+        <header-file src="src/ios/PRXPlayer/PRXQueuePlayer.h" />
+        <header-file src="src/ios/PRXPlayer/ReachabilityManager.h" />
+        <header-file src="src/ios/PRXPlayerImplementation/NYPROnDemand.h" />
+        <header-file src="src/ios/PRXPlayerImplementation/NYPRPlayer.h" />
+        <header-file src="src/ios/PRXPlayerImplementation/NYPRStream.h" />
+        <header-file src="src/ios/Reachability/Reachability.h" />
+
+        <source-file src="src/ios/PRXPlayerPlugin.m" />
+        <source-file src="src/ios/AudioStreamHandler.m" />
+        <source-file src="src/ios/PRXPlayer/PRXPlayer.m" />
+        <source-file src="src/ios/PRXPlayer/PRXPlayerQueue.m" />
+        <source-file src="src/ios/PRXPlayer/PRXQueuePlayer.m" />
+        <source-file src="src/ios/PRXPlayer/ReachabilityManager.m" />
+        <source-file src="src/ios/PRXPlayerImplementation/NYPROnDemand.m" />
+        <source-file src="src/ios/PRXPlayerImplementation/NYPRPlayer.m" />
+        <source-file src="src/ios/PRXPlayerImplementation/NYPRStream.m" />
+        <source-file src="src/ios/Reachability/Reachability.m" />
+
+        <framework src="MediaPlayer.framework" />
+        <framework src="AudioToolbox.framework" />
+    </platform>
+</plugin>

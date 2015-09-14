@@ -31,5 +31,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "org.nypr.cordova.playerhaterplugin": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/wnyc/cordova-plugin-playerhater.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
