@@ -7,6 +7,7 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="StreamingMedia.js"></script>
         <title>Hello World</title>
         <style>
             input {
@@ -32,18 +33,19 @@
                 var audioUrl = 'http://treinaweb-cursos.s3.amazonaws.com/prod/67/arquivos/rockGuitar.mp3';
 
             function play(){    
+                // Play an audio file (not recommended, since the screen will be plain black)
+                window.plugins.streamingMedia.playAudio(audioUrl);
+                
                 navigator.notification.alert(
                   'Iniciando o play',
                   function(){},
                   'MEDIA PLAY',
                   'Fechar'
                 );
-                // Play an audio file (not recommended, since the screen will be plain black)
-                window.plugins.streamingMedia.playAudio(audioUrl);
 
                 // Play an audio file with options (all options optional)
                 var options = {
-                    bgColor: "#FFFFFF",
+                    //bgColor: "#FFFFFF",
                     //bgImage: "<SWEET_BACKGROUND_IMAGE>",
                     //bgImageScale: "fit",
                     successCallback: function() {
