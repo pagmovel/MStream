@@ -23,15 +23,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "org.nypr.cordova.vlcplugin": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/wnyc/cordova-plugin-vlc.git",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-whitelist": {
         "source": {
             "type": "registry",
